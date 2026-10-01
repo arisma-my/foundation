@@ -44,16 +44,16 @@ wrangler.jsonc          tetapan Worker
 - Cloudflare: aktifkan **2FA** (My Profile > Authentication).
 - GitHub: cipta repo **Private** dan muat naik semua fail folder ini.
 
-### 1. Cipta pangkalan data D1
-1. Dashboard Cloudflare > **Storage & databases > D1 SQL database > Create**. Nama: `arisma-foundation`.
-2. Salin **Database ID**, tampal dalam `wrangler.jsonc` menggantikan `GANTI-DENGAN-DATABASE-ID`. Commit ke GitHub.
-3. Buka pangkalan data itu > **Console**. Tampal seluruh isi `migrations/0001_awal.sql` > **Execute**.
-
-### 2. Sambung repo kepada Cloudflare
-1. **Workers & Pages > Create > Import a repository** > pilih repo.
-2. Biarkan arahan deploy `npx wrangler deploy`. Klik **Deploy**.
-3. Anda dapat alamat `https://arisma-foundation.<nama-akaun>.workers.dev`. Laman sudah boleh dilihat.
+### 1. Sambung repo kepada Cloudflare
+1. **Workers & Pages > Create > Import a repository** > pilih repo. Nama Worker: `foundation` (sama dengan `name` dalam `wrangler.jsonc`).
+2. Arahan deploy: `npx wrangler deploy`. Klik **Deploy**.
+3. Pangkalan data D1 `arisma-foundation` dicipta **automatik** semasa deploy pertama. Tiada ID perlu ditampal.
+4. Anda dapat alamat `https://foundation.<nama-akaun>.workers.dev`. Laman sudah boleh dilihat.
    Setiap kali anda push ke GitHub, Cloudflare deploy semula secara automatik.
+
+### 2. Isi jadual pangkalan data (sekali sahaja)
+Cloudflare > **Storage & databases > D1 SQL database > arisma-foundation > Console**.
+Tampal seluruh isi `migrations/0001_awal.sql` > **Execute**. Tanpa langkah ini, kutipan dan sumbangan tidak berfungsi.
 
 ### 3. Turnstile (anti-bot)
 1. **Turnstile > Add widget**. Hostname: alamat workers.dev di atas. Mode: Managed.

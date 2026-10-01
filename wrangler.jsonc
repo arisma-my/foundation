@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "arisma-foundation",
+  "name": "foundation",
   "main": "src/index.js",
   "compatibility_date": "2026-10-01",
 
@@ -12,12 +12,13 @@
     "html_handling": "auto-trailing-slash"
   },
 
-  // Langkah 3 dalam BACA-SAYA.md: cipta pangkalan data, kemudian tampal database_id di sini.
+  // Pangkalan data D1. database_id sengaja TIDAK diisi: semasa deploy pertama, Wrangler akan
+  // mencipta (atau menyambung) pangkalan data bernama "arisma-foundation" secara automatik.
+  // Selepas itu jalankan migrations/0001_awal.sql sekali di D1 Console (lihat BACA-SAYA.md).
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "arisma-foundation",
-      "database_id": "GANTI-DENGAN-DATABASE-ID",
       "migrations_dir": "migrations"
     }
   ],
