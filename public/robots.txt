@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /api/
+Disallow: /resit/
+Disallow: /pentadbir/
+Disallow: /sumbang/selesai/

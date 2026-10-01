@@ -1,0 +1,57 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "arisma-foundation",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+
+  // Fail awam sahaja. src/, migrations/ dan fail tetapan TIDAK boleh dicapai dari web.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+
+  // Langkah 3 dalam BACA-SAYA.md: cipta pangkalan data, kemudian tampal database_id di sini.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "arisma-foundation",
+      "database_id": "GANTI-DENGAN-DATABASE-ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // Had kadar per alamat IP. period hanya boleh 10 atau 60 saat.
+  "ratelimits": [
+    { "name": "HAD_BORANG", "namespace_id": "4601", "simple": { "limit": 5, "period": 60 } },
+    { "name": "HAD_API", "namespace_id": "4602", "simple": { "limit": 60, "period": 60 } }
+  ],
+
+  // Semak bayaran tertunggak & hantar semula resit yang gagal, setiap 30 minit.
+  "triggers": { "crons": ["*/30 * * * *"] },
+
+  "observability": { "enabled": true },
+
+  // Nilai awam (bukan rahsia). Rahsia dimasukkan di dashboard: Settings > Variables and Secrets.
+  "vars": {
+    "LAMAN_URL": "",
+    "BUKA_SUMBANGAN": "tidak",
+    "TOYYIBPAY_BASE": "https://dev.toyyibpay.com",
+    "TOYYIBPAY_CHANNEL": "2",
+    "TURNSTILE_SITEKEY": "1x00000000000000000000AA",
+    "MIN_SUMBANGAN": "1",
+    "MAKS_SUMBANGAN": "30000",
+    "NAMA_YAYASAN": "ARISMA FOUNDATION",
+    "NO_DAFTAR_YAYASAN": "PPAB-29/2014",
+    "ALAMAT_YAYASAN": "2, Jalan UP 3/7E, Ukay Perdana, 68000 Ampang, Selangor",
+    "EMEL_YAYASAN": "arisma2012@gmail.com",
+    "JAWATAN_PEMUNGUT": "Bendahari / Treasurer",
+    "LHDN_RUJUKAN": "LHDN.AG.600-16/1/108.8403",
+    "LHDN_TEMPOH": "01 Julai 2024 hingga 31 Disember 2027",
+    "EMEL_DARI": "",
+    "EMEL_PENTADBIR": "",
+    "ACCESS_TEAM_DOMAIN": "",
+    "ACCESS_AUD": ""
+  }
+}

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ms" data-b="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sumbang · ARISMA Foundation</title>
+<meta name="description" content="Sumbang kepada projek ARISMA Foundation. Resit rasmi 44(6) untuk setiap sumbangan tunai.">
+<meta name="theme-color" content="#070706">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARISMA Foundation">
+<meta property="og:title" content="Sumbang · ARISMA Foundation">
+<meta property="og:description" content="Sumbang kepada projek ARISMA Foundation. Resit rasmi 44(6) untuk setiap sumbangan tunai.">
+<meta property="og:image" content="/media/poster.jpg">
+<link rel="icon" href="/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/laman.css">
+<script src="/js/awal.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+</head>
+<body>
+<a class="langkau" href="#utama"><span lang="ms">Langkau ke kandungan</span><span lang="en">Skip to content</span></a>
+<header class="kepala">
+  <div class="bungkus">
+    <a class="jenama" href="/" aria-label="ARISMA Foundation"><img src="/img/logo-emas.png" alt="" width="720" height="270"></a>
+    <nav class="nav" id="nav" aria-label="Menu utama">
+      <a href="/#projek"><span lang="ms">Projek</span><span lang="en">Projects</span></a>
+      <a href="/degup2027/">Kembara DEGUP</a>
+      <a href="/infaq-jumaat/">Infaq Jumaat</a>
+      <a href="/#tadbir"><span lang="ms">Tadbir urus</span><span lang="en">Governance</span></a>
+      <a href="#hubungi"><span lang="ms">Hubungi</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="alat">
+      <button class="teks-btn" id="bahasa" type="button" aria-label="Tukar bahasa / Change language"><span lang="ms">EN</span><span lang="en">BM</span></button>
+      <button class="teks-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <a class="btn btn-emas btn-kecil" href="/sumbang/"><span lang="ms">Sumbang</span><span lang="en">Donate</span></a>
+    </div>
+  </div>
+</header>
+<main id="utama">
+<section class="bahagian" aria-labelledby="tajukSumbang">
+  <div class="bungkus dua">
+    <div>
+      <h1 id="tajukSumbang" data-pecah><span lang="ms">Sumbang</span><span lang="en">Donate</span></h1>
+      <p class="pendahuluan" data-muncul><span lang="ms">Pilih projek dan amaun. Setiap sumbangan tunai menerima resit rasmi subseksyen 44(6) Akta Cukai Pendapatan 1967.</span><span lang="en">Choose a project and an amount. Every cash donation receives an official receipt under subsection 44(6) of the Income Tax Act 1967.</span></p>
+      <p class="nota" data-muncul><span lang="ms">LHDN mewajibkan nama, nombor pengenalan dan alamat penuh pada resit. Maklumat anda disimpan bersulit dan hanya digunakan untuk sumbangan ini.</span><span lang="en">LHDN requires your full name, ID number and address on the receipt. Your details are stored encrypted and used only for this donation.</span></p>
+      <div class="kotak" data-muncul>
+        <h3><span lang="ms">Atau pindahan bank</span><span lang="en">Or bank transfer</span></h3>
+        <dl>
+          <dt>Bank</dt><dd>Maybank</dd>
+          <dt><span lang="ms">Nama akaun</span><span lang="en">Account name</span></dt><dd>ARISMA FOUNDATION</dd>
+          <dt><span lang="ms">No. akaun</span><span lang="en">Account no.</span></dt><dd>5622 0963 0955</dd>
+        </dl>
+        <p class="bantu"><span lang="ms">E-mel bukti pindahan bersama nama penuh, no. pengenalan dan alamat ke arisma2012@gmail.com untuk resit.</span><span lang="en">Email your slip with your full name, ID number and address to arisma2012@gmail.com for a receipt.</span></p>
+      </div>
+    </div>
+
+    <div>
+      <p id="memuat" class="kecil"><span lang="ms">Memuatkan borang…</span><span lang="en">Loading form…</span></p>
+      <div id="tutup" class="nota" hidden><span lang="ms">Sumbangan dalam talian belum dibuka. Anda boleh menyumbang melalui pindahan bank.</span><span lang="en">Online donations are not open yet. You can give by bank transfer.</span></div>
+
+      <form class="borang" id="borangSumbang" novalidate hidden>
+        <fieldset class="medan">
+          <legend><span lang="ms">Projek</span><span lang="en">Project</span></legend>
+          <div class="pil" id="pilihProjek"></div>
+        </fieldset>
+        <div class="medan" id="medanItem" hidden>
+          <label for="item"><span lang="ms">Peruntukan</span><span lang="en">Allocate to</span></label>
+          <select id="item" name="item"></select>
+        </div>
+        <fieldset class="medan">
+          <legend><span lang="ms">Amaun</span><span lang="en">Amount</span></legend>
+          <div class="pil" id="pilihAmaun"></div>
+          <div class="lain"><span>RM</span><input id="amaunLain" name="amaunLain" type="number" inputmode="decimal" step="0.01" disabled aria-label="Amaun lain dalam ringgit"></div>
+          <p class="bantu"><span lang="ms">Antara</span><span lang="en">Between</span> <span id="hadMin">RM5</span> <span lang="ms">dan</span><span lang="en">and</span> <span id="hadMaks">RM30,000</span>.</p>
+        </fieldset>
+        <fieldset class="medan">
+          <legend><span lang="ms">Saya menyumbang sebagai</span><span lang="en">I am giving as</span></legend>
+          <div class="pil">
+            <label><input type="radio" name="jenis" value="individu" checked><b><span lang="ms">Individu</span><span lang="en">An individual</span></b></label>
+            <label><input type="radio" name="jenis" value="syarikat"><b><span lang="ms">Syarikat / organisasi</span><span lang="en">A company / organisation</span></b></label>
+          </div>
+        </fieldset>
+        <div class="medan">
+          <label for="nama"><span id="labelNamaIndividu"><span lang="ms">Nama penuh seperti dalam kad pengenalan</span><span lang="en">Full name as in your IC</span></span><span id="labelNamaSyarikat" hidden><span lang="ms">Nama syarikat seperti dalam pendaftaran</span><span lang="en">Company name as registered</span></span></label>
+          <input id="nama" name="nama" type="text" required minlength="3" maxlength="120" autocomplete="name">
+        </div>
+        <div class="medan">
+          <label for="no_id"><span id="labelIndividu"><span lang="ms">No. kad pengenalan / pasport</span><span lang="en">IC / passport number</span></span><span id="labelSyarikat" hidden><span lang="ms">No. pendaftaran syarikat / organisasi</span><span lang="en">Registration number</span></span></label>
+          <input id="no_id" name="no_id" type="text" required maxlength="40" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="medan">
+          <label for="alamat"><span lang="ms">Alamat surat-menyurat penuh</span><span lang="en">Full mailing address</span></label>
+          <input id="alamat" name="alamat" type="text" required minlength="10" maxlength="300" autocomplete="street-address">
+        </div>
+        <div class="medan">
+          <label for="emel"><span lang="ms">E-mel (resit dihantar ke sini)</span><span lang="en">Email (your receipt goes here)</span></label>
+          <input id="emel" name="emel" type="email" required maxlength="254" autocomplete="email">
+        </div>
+        <div class="medan">
+          <label for="telefon"><span lang="ms">No. telefon</span><span lang="en">Phone number</span></label>
+          <input id="telefon" name="telefon" type="tel" required maxlength="20" autocomplete="tel">
+        </div>
+        <label class="semak"><input type="checkbox" name="papar_nama"><span><span lang="ms">Paparkan nama pertama saya dalam senarai sumbangan terkini.</span><span lang="en">Show my first name in the recent gifts list.</span></span></label>
+        <label class="semak"><input type="checkbox" name="setuju" required><span><span lang="ms">Saya bersetuju maklumat ini digunakan oleh ARISMA Foundation untuk memproses sumbangan dan mengeluarkan resit cukai mengikut keperluan LHDN.</span><span lang="en">I agree that ARISMA Foundation may use these details to process my donation and issue a tax receipt as required by LHDN.</span></span></label>
+        <div class="ts" id="ts"></div>
+        <div class="tindakan"><button class="btn btn-emas" id="hantar" type="submit"><span lang="ms">Teruskan ke pembayaran</span><span lang="en">Continue to payment</span></button></div>
+        <p class="bantu"><span lang="ms">Anda akan dibawa ke toyyibPay untuk membayar melalui FPX atau kad.</span><span lang="en">You will be taken to toyyibPay to pay by FPX or card.</span></p>
+        <p class="mesej" id="mesej" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="kaki" id="hubungi">
+  <div class="bungkus">
+    <div class="grid">
+      <div>
+        <img src="/img/logo-emas.png" alt="ARISMA Foundation" width="720" height="270">
+        <address>2, Jalan UP 3/7E, Ukay Perdana,<br>68000 Ampang, Selangor</address>
+      </div>
+      <div>
+        <h2><span lang="ms">Hubungi</span><span lang="en">Contact</span></h2>
+        <a class="k" href="https://wa.me/60122290403" rel="noopener"><b>Puan Siti Khadijah</b><span><span lang="ms">Pengasas</span><span lang="en">Founder</span>, 012-229 0403</span></a>
+        <a class="k" href="mailto:arisma2012@gmail.com"><b><span lang="ms">E-mel</span><span lang="en">Email</span></b><span>arisma2012@gmail.com</span></a>
+      </div>
+      <div>
+        <h2><span lang="ms">Ikuti kami</span><span lang="en">Follow us</span></h2>
+        <a class="k" href="https://www.facebook.com/arisma2013" rel="noopener"><b>Facebook</b><span>arisma2013</span></a>
+        <a class="k" href="https://www.instagram.com/arisma2012/" rel="noopener"><b>Instagram</b><span>@arisma2012</span></a>
+        <a class="k" href="https://arisma.org.my" rel="noopener"><b>arisma.org.my</b><span><span lang="ms">Akademi ARISMA (entiti berasingan)</span><span lang="en">ARISMA Academy (separate entity)</span></span></a>
+      </div>
+    </div>
+    <div class="bawah">
+      <p>© <span data-tahun>2026</span> The Trustees of ARISMA Foundation Registered (PPAB-29/2014). <span lang="ms">Diperbadankan di bawah Akta Pemegang Amanah (Pemerbadanan) 1952.</span><span lang="en">Incorporated under the Trustees (Incorporation) Act 1952.</span></p>
+      <p><span lang="ms">Sumbangan layak potongan cukai di bawah subseksyen 44(6) Akta Cukai Pendapatan 1967, No. Rujukan LHDN.AG.600-16/1/108.8403.</span><span lang="en">Donations are tax deductible under subsection 44(6) of the Income Tax Act 1967, Ref. LHDN.AG.600-16/1/108.8403.</span></p>
+    </div>
+  </div>
+</footer>
+<script src="/js/laman.js"></script>
+<script src="/js/borang.js"></script>
+<script src="/js/sumbang.js"></script>
+</body>
+</html>
