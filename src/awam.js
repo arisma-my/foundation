@@ -78,7 +78,7 @@ export async function kutipan(request, env, ctx) {
 }
 
 /* ---------- POST /api/taja ---------- */
-const MINAT = ["utama", "zonal", "kerusi", "csr"];
+const MINAT = ["utama", "zonal", "kerusi", "csr", "pertanyaan", "kolaborasi"];
 
 export async function hantarTaja(request, env, ctx) {
   if (!asalSah(request, env)) return ralat(403, "asal");
@@ -97,7 +97,8 @@ export async function hantarTaja(request, env, ctx) {
     minat: MINAT.includes(b.minat) ? b.minat : "",
     mesej: blok(b.mesej, 2000)
   };
-  if (r.syarikat.length < 2) return ralat(400, "data", "syarikat");
+  if (r.syarikat && r.syarikat.length < 2) return ralat(400, "data", "syarikat");
+  if (!r.syarikat) r.syarikat = "(tidak dinyatakan)";
   if (r.pegawai.length < 3) return ralat(400, "data", "pegawai");
   if (!emelSah(r.emel)) return ralat(400, "data", "emel");
   if (!telefonSah(r.telefon)) return ralat(400, "data", "telefon");
@@ -119,7 +120,7 @@ export async function hantarTaja(request, env, ctx) {
           from: env.EMEL_DARI,
           to: [env.EMEL_PENTADBIR],
           reply_to: r.emel,
-          subject: `Hasrat penajaan DEGUP: ${r.syarikat}`,
+          subject: `Pertanyaan laman web (${r.minat}): ${r.syarikat === "(tidak dinyatakan)" ? r.pegawai : r.syarikat}`,
           html: badan
         })
       }).catch(() => {})

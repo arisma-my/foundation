@@ -29,6 +29,26 @@
     });
   }
 
+  /* ---------- Submenu mudah alih ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".sub-btn"), function (b) {
+    b.addEventListener("click", function () {
+      var li = b.parentElement, buka = !li.classList.contains("buka-sub");
+      li.classList.toggle("buka-sub", buka);
+      b.setAttribute("aria-expanded", String(buka));
+    });
+  });
+
+  /* ---------- Fail pilihan: papar hanya jika fail wujud (laporan PDF, kod QR) ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-jika-ada]"), function (el) {
+    var u = el.getAttribute("data-jika-ada");
+    fetch(u, { method: "HEAD", cache: "no-store" }).then(function (r) {
+      if (!r.ok || /text\/html/.test(r.headers.get("content-type") || "")) return;
+      el.classList.add("ada");
+      Array.prototype.forEach.call(el.querySelectorAll("[data-pautan]"), function (a) { a.href = u; });
+      Array.prototype.forEach.call(el.querySelectorAll("[data-gambar]"), function (i) { i.src = u; });
+    }).catch(function () {});
+  });
+
   /* ---------- Pecah ayat kepada perkataan ---------- */
   function pecah(el) {
     if (el.getAttribute("data-dipecah")) return;

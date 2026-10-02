@@ -1,0 +1,67 @@
+---
+laluan: hubungi/index.html
+tajuk: Hubungi Kami · ARISMA Foundation
+desk: Lokasi pejabat ARISMA Foundation dan borang pertanyaan, CSR dan penajaan.
+nav: hubungi
+skrip: borang,taja
+turnstile: ya
+noindex:
+---
+
+<section class="halaman-kepala" aria-labelledby="h1">
+  <div class="bungkus">
+    <p class="jejak"><a href="/">[[Laman utama||Home]]</a> / [[Hubungi Kami||Contact Us]]</p>
+    <h1 id="h1" data-pecah>[[Hubungi Kami||Contact Us]]</h1>
+    <p class="pendahuluan" data-muncul>[[Pertanyaan am, CSR, penajaan atau kolaborasi? Kami sedia mendengar.||General enquiries, CSR, sponsorship or collaboration? We’re happy to hear from you.]]</p>
+    <ul class="chip-nav" data-muncul>
+      <li><a href="#lokasi">[[Lokasi||Location]]</a></li>
+      <li><a href="#borang">[[Borang pertanyaan & CSR||Enquiry & CSR form]]</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="bahagian rapat" id="lokasi" aria-labelledby="lokT">
+  <div class="bungkus dua">
+    <div>
+      <h2 id="lokT" data-pecah>[[Lokasi||Location]]</h2>
+      <address class="alamat" data-muncul>ARISMA Foundation<br>2, Jalan UP 3/7E, Ukay Perdana,<br>68000 Ampang, Selangor</address>
+      <div class="tindakan" data-muncul><a class="btn btn-gelap" href="https://www.google.com/maps/search/?api=1&amp;query=2%20Jalan%20UP%203%2F7E%2C%20Ukay%20Perdana%2C%2068000%20Ampang%2C%20Selangor" rel="noopener" target="_blank">[[Buka di Google Maps||Open in Google Maps]]</a></div>
+    </div>
+    <div class="kotak" data-muncul>
+      <dl>
+        <dt>[[Pengasas||Founder]]</dt><dd>Puan Siti Khadijah</dd>
+        <dt>[[Telefon / WhatsApp||Phone / WhatsApp]]</dt><dd><a href="https://wa.me/60122290403" rel="noopener">012-229 0403</a></dd>
+        <dt>[[Infaq Jumaat||Infaq Jumaat]]</dt><dd><a href="https://wa.me/60122098440" rel="noopener">012-209 8440</a> (Iliya Farouq)</dd>
+        <dt>[[E-mel||Email]]</dt><dd><a href="mailto:arisma2012@gmail.com">arisma2012@gmail.com</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="bahagian alt" id="borang" aria-labelledby="borangT">
+  <div class="bungkus dua">
+    <div>
+      <h2 id="borangT" data-pecah>[[Borang pertanyaan & CSR||Enquiry & CSR form]]</h2>
+      <p class="pendahuluan" data-muncul>[[Syarikat dan rakan korporat yang berminat dengan CSR atau penajaan boleh menggunakan borang ini. Kami menjawab dalam tiga hari bekerja.||Companies and corporate partners interested in CSR or sponsorship can use this form. We reply within three working days.]]</p>
+    </div>
+    <form class="borang" id="borangTaja" novalidate>
+      <div class="medan"><label for="tJenis">[[Jenis pertanyaan||Type of enquiry]]</label>
+        <select id="tJenis" name="minat" required>
+          <option value="pertanyaan" data-ms="Pertanyaan am" data-en="General enquiry">Pertanyaan am</option>
+          <option value="csr" selected data-ms="CSR / sumbangan korporat" data-en="CSR / corporate donation">CSR / sumbangan korporat</option>
+          <option value="utama" data-ms="Penajaan (Penaja Utama)" data-en="Sponsorship (Title sponsor)">Penajaan (Penaja Utama)</option>
+          <option value="zonal" data-ms="Penajaan (Penaja Zonal)" data-en="Sponsorship (Zonal sponsor)">Penajaan (Penaja Zonal)</option>
+          <option value="kolaborasi" data-ms="Kolaborasi program" data-en="Programme collaboration">Kolaborasi program</option>
+        </select></div>
+      <div class="medan"><label for="tSyarikat">[[Syarikat / organisasi (jika ada)||Company / organisation (if any)]]</label><input id="tSyarikat" name="syarikat" type="text" maxlength="160" autocomplete="organization"></div>
+      <div class="medan"><label for="tPegawai">[[Nama anda||Your name]]</label><input id="tPegawai" name="pegawai" type="text" required maxlength="120" autocomplete="name"></div>
+      <div class="medan"><label for="tJawatan">[[Jawatan||Position]]</label><input id="tJawatan" name="jawatan" type="text" maxlength="120" autocomplete="organization-title"></div>
+      <div class="medan"><label for="tEmel">[[E-mel||Email]]</label><input id="tEmel" name="emel" type="email" required maxlength="254" autocomplete="email"></div>
+      <div class="medan"><label for="tTelefon">[[No. telefon / WhatsApp||Phone / WhatsApp]]</label><input id="tTelefon" name="telefon" type="tel" required maxlength="20" autocomplete="tel"></div>
+      <div class="medan"><label for="tMesej">[[Mesej||Message]]</label><textarea id="tMesej" name="mesej" maxlength="2000"></textarea></div>
+      <div class="ts" id="tsTaja"></div>
+      <div class="tindakan"><button class="btn btn-gelap" id="hantarTaja" type="submit">[[Hantar pertanyaan||Send enquiry]]</button></div>
+      <p class="mesej" id="mesejTaja" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

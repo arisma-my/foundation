@@ -1,0 +1,82 @@
+---
+laluan: sumbang/index.html
+tajuk: Sumbang · ARISMA Foundation
+desk: Sumbang kepada projek ARISMA Foundation. Resit rasmi 44(6) untuk setiap sumbangan tunai.
+nav: 
+skrip: borang,sumbang
+turnstile: ya
+noindex: 
+---
+<section class="bahagian" aria-labelledby="tajukSumbang">
+  <div class="bungkus dua">
+    <div>
+      <h1 id="tajukSumbang" data-pecah><span lang="ms">Sumbang</span><span lang="en">Donate</span></h1>
+      <p class="pendahuluan" data-muncul><span lang="ms">Pilih projek dan amaun. Setiap sumbangan tunai menerima resit rasmi subseksyen 44(6) Akta Cukai Pendapatan 1967.</span><span lang="en">Choose a project and an amount. Every cash donation receives an official receipt under subsection 44(6) of the Income Tax Act 1967.</span></p>
+      <p class="nota" data-muncul><span lang="ms">LHDN mewajibkan nama, nombor pengenalan dan alamat penuh pada resit. Maklumat anda disimpan bersulit dan hanya digunakan untuk sumbangan ini.</span><span lang="en">LHDN requires your full name, ID number and address on the receipt. Your details are stored encrypted and used only for this donation.</span></p>
+      <div class="kotak" data-muncul>
+        <h3><span lang="ms">Atau pindahan bank</span><span lang="en">Or bank transfer</span></h3>
+        <dl>
+          <dt>Bank</dt><dd>Maybank</dd>
+          <dt><span lang="ms">Nama akaun</span><span lang="en">Account name</span></dt><dd>ARISMA FOUNDATION</dd>
+          <dt><span lang="ms">No. akaun</span><span lang="en">Account no.</span></dt><dd>5622 0963 0955</dd>
+        </dl>
+        <p class="bantu"><span lang="ms">E-mel bukti pindahan bersama nama penuh, no. pengenalan dan alamat ke arisma2012@gmail.com untuk resit.</span><span lang="en">Email your slip with your full name, ID number and address to arisma2012@gmail.com for a receipt.</span></p>
+      </div>
+    </div>
+
+    <div>
+      <p id="memuat" class="kecil"><span lang="ms">Memuatkan borang…</span><span lang="en">Loading form…</span></p>
+      <div id="tutup" class="nota" hidden><span lang="ms">Sumbangan dalam talian belum dibuka. Anda boleh menyumbang melalui pindahan bank.</span><span lang="en">Online donations are not open yet. You can give by bank transfer.</span></div>
+
+      <form class="borang" id="borangSumbang" novalidate hidden>
+        <fieldset class="medan">
+          <legend><span lang="ms">Projek</span><span lang="en">Project</span></legend>
+          <div class="pil" id="pilihProjek"></div>
+        </fieldset>
+        <div class="medan" id="medanItem" hidden>
+          <label for="item"><span lang="ms">Peruntukan</span><span lang="en">Allocate to</span></label>
+          <select id="item" name="item"></select>
+        </div>
+        <fieldset class="medan">
+          <legend><span lang="ms">Amaun</span><span lang="en">Amount</span></legend>
+          <div class="pil" id="pilihAmaun"></div>
+          <div class="lain"><span>RM</span><input id="amaunLain" name="amaunLain" type="number" inputmode="decimal" step="0.01" disabled aria-label="Amaun lain dalam ringgit"></div>
+          <p class="bantu"><span lang="ms">Antara</span><span lang="en">Between</span> <span id="hadMin">RM5</span> <span lang="ms">dan</span><span lang="en">and</span> <span id="hadMaks">RM30,000</span>.</p>
+        </fieldset>
+        <fieldset class="medan">
+          <legend><span lang="ms">Saya menyumbang sebagai</span><span lang="en">I am giving as</span></legend>
+          <div class="pil">
+            <label><input type="radio" name="jenis" value="individu" checked><b><span lang="ms">Individu</span><span lang="en">An individual</span></b></label>
+            <label><input type="radio" name="jenis" value="syarikat"><b><span lang="ms">Syarikat / organisasi</span><span lang="en">A company / organisation</span></b></label>
+          </div>
+        </fieldset>
+        <div class="medan">
+          <label for="nama"><span id="labelNamaIndividu"><span lang="ms">Nama penuh seperti dalam kad pengenalan</span><span lang="en">Full name as in your IC</span></span><span id="labelNamaSyarikat" hidden><span lang="ms">Nama syarikat seperti dalam pendaftaran</span><span lang="en">Company name as registered</span></span></label>
+          <input id="nama" name="nama" type="text" required minlength="3" maxlength="120" autocomplete="name">
+        </div>
+        <div class="medan">
+          <label for="no_id"><span id="labelIndividu"><span lang="ms">No. kad pengenalan / pasport</span><span lang="en">IC / passport number</span></span><span id="labelSyarikat" hidden><span lang="ms">No. pendaftaran syarikat / organisasi</span><span lang="en">Registration number</span></span></label>
+          <input id="no_id" name="no_id" type="text" required maxlength="40" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="medan">
+          <label for="alamat"><span lang="ms">Alamat surat-menyurat penuh</span><span lang="en">Full mailing address</span></label>
+          <input id="alamat" name="alamat" type="text" required minlength="10" maxlength="300" autocomplete="street-address">
+        </div>
+        <div class="medan">
+          <label for="emel"><span lang="ms">E-mel (resit dihantar ke sini)</span><span lang="en">Email (your receipt goes here)</span></label>
+          <input id="emel" name="emel" type="email" required maxlength="254" autocomplete="email">
+        </div>
+        <div class="medan">
+          <label for="telefon"><span lang="ms">No. telefon</span><span lang="en">Phone number</span></label>
+          <input id="telefon" name="telefon" type="tel" required maxlength="20" autocomplete="tel">
+        </div>
+        <label class="semak"><input type="checkbox" name="papar_nama"><span><span lang="ms">Paparkan nama pertama saya dalam senarai sumbangan terkini.</span><span lang="en">Show my first name in the recent gifts list.</span></span></label>
+        <label class="semak"><input type="checkbox" name="setuju" required><span><span lang="ms">Saya bersetuju maklumat ini digunakan oleh ARISMA Foundation untuk memproses sumbangan dan mengeluarkan resit cukai mengikut keperluan LHDN.</span><span lang="en">I agree that ARISMA Foundation may use these details to process my donation and issue a tax receipt as required by LHDN.</span></span></label>
+        <div class="ts" id="ts"></div>
+        <div class="tindakan"><button class="btn btn-emas" id="hantar" type="submit"><span lang="ms">Teruskan ke pembayaran</span><span lang="en">Continue to payment</span></button></div>
+        <p class="bantu"><span lang="ms">Anda akan dibawa ke toyyibPay untuk membayar melalui FPX atau kad.</span><span lang="en">You will be taken to toyyibPay to pay by FPX or card.</span></p>
+        <p class="mesej" id="mesej" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>

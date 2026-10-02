@@ -1,0 +1,32 @@
+---
+laluan: sumbang/selesai/index.html
+tajuk: Status sumbangan · ARISMA Foundation
+desk: Status sumbangan anda.
+nav: 
+skrip: selesai
+turnstile: 
+noindex: ya
+---
+<section class="bahagian" aria-live="polite">
+  <div class="bungkus tengah">
+    <div id="sSemak">
+      <h1><span lang="ms">Menyemak pembayaran anda…</span><span lang="en">Checking your payment…</span></h1>
+      <p class="pendahuluan"><span lang="ms">Sebentar, kami sedang mengesahkan dengan toyyibPay.</span><span lang="en">One moment, we are confirming with toyyibPay.</span></p>
+    </div>
+    <div id="sBerjaya" hidden>
+      <h1 data-pecah="manual" id="tajukBerjaya"><span lang="ms">Terima kasih. Sumbangan anda telah diterima.</span><span lang="en">Thank you. Your donation was received.</span></h1>
+      <p class="pendahuluan"><span lang="ms">No. resit:</span><span lang="en">Receipt no.:</span> <strong id="noResit"></strong>. <span lang="ms">Salinan resit rasmi juga akan dihantar ke e-mel anda.</span><span lang="en">A copy of your official receipt will also be emailed to you.</span></p>
+      <div class="tindakan"><a class="btn btn-emas" id="pautanResit" href="#" target="_blank" rel="noopener"><span lang="ms">Buka resit</span><span lang="en">Open receipt</span></a><a class="btn btn-putih" href="/"><span lang="ms">Ke laman utama</span><span lang="en">Back to home</span></a></div>
+    </div>
+    <div id="sMenunggu" hidden>
+      <h1><span lang="ms">Pembayaran anda sedang diproses.</span><span lang="en">Your payment is being processed.</span></h1>
+      <p class="pendahuluan"><span lang="ms">Sesetengah bank mengambil masa beberapa minit untuk mengesahkan. Resit akan dihantar ke e-mel sebaik sahaja berjaya.</span><span lang="en">Some banks take a few minutes to confirm. We will email your receipt once it succeeds.</span></p>
+      <div class="tindakan"><a class="btn btn-putih" href="/"><span lang="ms">Ke laman utama</span><span lang="en">Back to home</span></a></div>
+    </div>
+    <div id="sGagal" hidden>
+      <h1><span lang="ms">Pembayaran tidak berjaya.</span><span lang="en">The payment was not completed.</span></h1>
+      <p class="pendahuluan"><span lang="ms">Tiada wang ditolak. Anda boleh cuba semula.</span><span lang="en">No money was taken. You can try again.</span></p>
+      <div class="tindakan"><a class="btn btn-emas" href="/sumbang/"><span lang="ms">Cuba lagi</span><span lang="en">Try again</span></a></div>
+    </div>
+  </div>
+</section>

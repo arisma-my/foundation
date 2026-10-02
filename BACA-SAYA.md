@@ -4,25 +4,28 @@ Satu Cloudflare Worker melayan laman statik (`public/`) dan backend sumbangan (`
 Data disimpan dalam Cloudflare D1. Tiada Vercel, Google Sheet atau Apps Script.
 
 ```
-public/                 laman awam (HTML, CSS, JS, video)
-  index.html            laman utama: video logo, tentang, projek, tadbir urus & pemegang amanah
-  degup2027/            kempen Kembara DEGUP 2027: kutipan, item yang boleh ditaja, penajaan korporat
-  infaq-jumaat/         projek Infaq Jumaat
-  sumbang/              borang sumbangan semua projek (+ selesai/ selepas bayar)
-  media/                intro.mp4 dan poster.jpg (video logo)
-  img/                  logo emas, favicon, poster Infaq Jumaat
-  _headers              pengepala keselamatan untuk fail statik
-src/                    backend (Worker)
-  index.js              penghala + cron
-  projek.js             SENARAI PROJEK & ITEM (sasaran, unit, amaun minimum)
-  sumbang.js            cipta sumbangan, sahkan bayaran, cron
-  toyyibpay.js          klien toyyibPay
-  resit.js              resit rasmi 44(6) (web + e-mel)
-  awam.js               /api/tetapan, /api/kutipan, /api/taja
-  pentadbir.js          eksport CSV (dilindungi Cloudflare Access)
-  util.js               keselamatan, penyulitan, utiliti
+public/                   LAMAN YANG DIDEPLOY (HTML, CSS, JS, imej, video)
+  index.html              utama: video logo, hero, lencana kredibiliti, mengenai, 4 inisiatif, program, sumbang, tadbir urus
+  siapa-kami/             visi, misi, objektif, tadbir urus + senarai pemegang amanah
+  kredibiliti/            JPM/BHEUU, ALPA, Fisabilillah MAIS, potongan cukai 44(6), laporan ketelusan
+  program/                OKU Berdoa, Program MAIS, UIA & USIM, aktiviti kesedaran
+  inisiatif/              senarai 4 inisiatif
+    (degup2027/ taman-agro/ infaq-jumaat/ solidarity-raudhah/ ialah halaman setiap inisiatif)
+  hubungi/                lokasi + borang pertanyaan / CSR / penajaan
+  sumbang/                borang sumbangan semua projek (+ selesai/ selepas bayar)
+  terma/  privasi/        Terma & Syarat, Dasar Privasi (DRAF, semak dengan peguam)
+  media/                  intro.mp4 + poster.jpg (video logo)
+  img/                    logo-emas.png, favicon.png, infaq-jumaat.jpg (poster asal 904x1280)
+  _headers                pengepala keselamatan fail statik
+sumber/                   PILIHAN: kerangka menu/kaki + isi halaman + bina.py (jana semula public/*.html)
+src/                      backend (Worker)
+  index.js  penghala + cron          projek.js  SENARAI PROJEK & ITEM (sasaran, unit, minimum)
+  sumbang.js  sumbangan, pengesahan  toyyibpay.js  klien toyyibPay
+  resit.js  resit 44(6) web + e-mel  awam.js  /api/tetapan, /api/kutipan, /api/taja (pertanyaan & penajaan)
+  pentadbir.js  eksport CSV (Access) util.js  keselamatan, penyulitan
 migrations/0001_awal.sql  skema pangkalan data
-wrangler.jsonc          tetapan Worker
+wrangler.jsonc            tetapan Worker
+SENARAI-SEMAK.md          apa yang masih perlu disediakan sebelum siar
 ```
 
 ## Apa yang menjaga keselamatan
@@ -152,7 +155,13 @@ Jika ada fail QR rasmi daripada bank, letak sebagai `public/img/duitnow.png` dan
 
 **Video logo**: `public/media/intro.mp4` dan `poster.jpg` sudah ada. Jika video tidak dapat dimainkan, poster dipaparkan.
 
-**Ubah teks**: sunting fail HTML terus. Setiap teks ada dua versi, `<span lang="ms">` dan `<span lang="en">`. Kepala dan kaki halaman berulang dalam 6 fail HTML.
+**Fail pilihan yang muncul sendiri** (letak fail, commit, selesai; tiada kod perlu diubah):
+- `public/img/duitnow-qr.png`: kod QR DuitNow rasmi ARISMA Foundation, muncul di laman utama dan halaman Infaq.
+- `public/laporan/kelulusan-44-6.pdf`, `sijil-pemerbadanan.pdf`, `laporan-aktiviti.pdf`, `surat-mais.pdf`: muncul dengan butang Muat turun di halaman Kredibiliti. Sebelum itu, ia tertulis "Akan dimuat naik". Hitamkan no. kad pengenalan dalam sijil sebelum memuat naik.
+
+**Menu & kaki halaman**: dikongsi oleh semua halaman. Jika anda ada Python, ubah `sumber/kerangka.html` atau `sumber/kaki.html`, kemudian jalankan `python3 sumber/bina.py` untuk menjana semula semua halaman. Jika tidak, ubah menu/kaki dalam setiap fail `public/**/index.html`.
+
+**Ubah teks**: sunting fail HTML terus. Setiap teks ada dua versi, `<span lang="ms">` dan `<span lang="en">`. Teks dalam `sumber/halaman/*.html` ditulis sebagai `[[teks BM||English text]]`.
 
 **Pemegang amanah**: senarai dalam `public/index.html` (bahagian Tadbir urus) diambil daripada notis 2019. Sahkan sebelum siar.
 
