@@ -11,7 +11,7 @@ Sintaks dwibahasa dalam sumber:   [[teks BM||English text]]   ->   <span lang="m
 Setiap halaman bermula dengan blok  ---  laluan / tajuk / desk / nav / skrip / turnstile / noindex / og  ---
 Jika anda tidak menjalankan skrip ini, sunting terus fail dalam public/ (menu & kaki perlu diubah di setiap fail).
 """
-import os, re, glob, sys
+import os, re, glob, sys, hashlib
 
 AKAR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SUMBER = os.path.join(AKAR, "sumber")
@@ -37,7 +37,16 @@ def baca_halaman(fail):
     return meta, m.group(2)
 
 
+def versi():
+    """Cap jari ringkas kandungan CSS + JS. Berubah bila fail berubah, supaya pelayar sentiasa ambil versi baharu."""
+    h = hashlib.md5()
+    for f in sorted(glob.glob(os.path.join(PUBLIC, "css", "*.css")) + glob.glob(os.path.join(PUBLIC, "js", "*.js"))):
+        h.update(open(f, "rb").read())
+    return h.hexdigest()[:8]
+
+
 def main():
+    V = versi()
     kerangka = open(os.path.join(SUMBER, "kerangka.html"), encoding="utf-8").read()
     kaki = open(os.path.join(SUMBER, "kaki.html"), encoding="utf-8").read()
     n = 0
@@ -50,14 +59,14 @@ def main():
         k = (kerangka.replace("{{TAJUK}}", meta["tajuk"]).replace("{{DESKRIPSI}}", meta["desk"])
              .replace("{{OGIMG}}", meta.get("og", "/media/poster.jpg")).replace("{{KEPALA_TAMBAHAN}}", tambah))
         k = re.sub(r' data-nav="([a-z]+)"', lambda m: ' aria-current="page"' if m.group(1) == nav else "", k)
-        skrip = "".join(f'<script src="/js/{s.strip()}.js"></script>\n' for s in meta.get("skrip", "").split(",") if s.strip())
-        html = k + badan + kaki.replace("{{SKRIP}}", skrip)
+        skrip = "".join(f'<script src="/js/{s.strip()}.js?v={V}"></script>\n' for s in meta.get("skrip", "").split(",") if s.strip())
+        html = (k + badan + kaki.replace("{{SKRIP}}", skrip)).replace("{{V}}", V)
         html = dwibahasa(html)
         keluar = os.path.join(PUBLIC, meta["laluan"])
         os.makedirs(os.path.dirname(keluar), exist_ok=True)
         open(keluar, "w", encoding="utf-8").write(html)
         n += 1
-    print(f"{n} halaman dijana")
+    print(f"{n} halaman dijana (versi aset {V})")
 
 
 if __name__ == "__main__":

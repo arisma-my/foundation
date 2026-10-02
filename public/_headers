@@ -12,10 +12,10 @@
   Cache-Control: no-store
 
 /css/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache
 
 /js/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: no-cache
 
 /media/*
   Cache-Control: public, max-age=604800

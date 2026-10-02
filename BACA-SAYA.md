@@ -159,6 +159,8 @@ Jika ada fail QR rasmi daripada bank, letak sebagai `public/img/duitnow.png` dan
 - `public/img/duitnow-qr.png`: kod QR DuitNow rasmi ARISMA Foundation, muncul di laman utama dan halaman Infaq.
 - `public/laporan/kelulusan-44-6.pdf`, `sijil-pemerbadanan.pdf`, `laporan-aktiviti.pdf`, `surat-mais.pdf`: muncul dengan butang Muat turun di halaman Kredibiliti. Sebelum itu, ia tertulis "Akan dimuat naik". Hitamkan no. kad pengenalan dalam sijil sebelum memuat naik.
 
+**Cache CSS/JS**: pautan CSS/JS dalam HTML ada `?v=...` dan `public/_headers` menetapkan `no-cache`, jadi perubahan gaya/skrip sampai kepada pelawat selepas deploy. Jika anda ubah `public/css` atau `public/js` tanpa menjalankan `sumber/bina.py`, tukar nombor `?v=` secara manual dalam fail HTML (atau tekan Ctrl+Shift+R semasa menguji).
+
 **Menu & kaki halaman**: dikongsi oleh semua halaman. Jika anda ada Python, ubah `sumber/kerangka.html` atau `sumber/kaki.html`, kemudian jalankan `python3 sumber/bina.py` untuk menjana semula semua halaman. Jika tidak, ubah menu/kaki dalam setiap fail `public/**/index.html`.
 
 **Ubah teks**: sunting fail HTML terus. Setiap teks ada dua versi, `<span lang="ms">` dan `<span lang="en">`. Teks dalam `sumber/halaman/*.html` ditulis sebagai `[[teks BM||English text]]`.
