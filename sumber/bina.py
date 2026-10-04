@@ -67,6 +67,12 @@ def main():
         open(keluar, "w", encoding="utf-8").write(html)
         n += 1
     print(f"{n} halaman dijana (versi aset {V})")
+    tinggal = []
+    for f in glob.glob(os.path.join(PUBLIC, "**", "*.html"), recursive=True):
+        if "[NOMBOR" in open(f, encoding="utf-8").read():
+            tinggal.append(os.path.relpath(f, PUBLIC))
+    if tinggal:
+        print("AMARAN: masih ada ruang kosong [NOMBOR ...] dalam:", ", ".join(sorted(tinggal)))
 
 
 if __name__ == "__main__":

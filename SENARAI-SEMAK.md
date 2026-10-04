@@ -24,6 +24,7 @@ Tandakan [x] bila siap. Bahagian A mesti selesai sebelum kutipan dalam talian di
 - [ ] **Siri OKU Berdoa, Program MAIS, UIA & USIM:** tarikh, lokasi, gambar, nama pegawai rakan.
 - [ ] **Solidarity with Raudhah Autisme:** butiran kerjasama, logo rakan, kebenaran menggunakan nama mereka.
 - [ ] **Taman Agro:** gambar projek rintis 2018, data pelatih (dengan kebenaran keluarga).
+- [ ] **Nombor telefon Hj. Omar bin Ahmad (Pengerusi).** Kini ruang `[NOMBOR HJ OMAR]` dalam kaki halaman (semua halaman) dan halaman Hubungi. Cari dengan `grep -r "NOMBOR" public sumber`; `bina.py` beri amaran selagi masih ada.
 - [ ] **E-mel dan telefon rasmi pejabat** (brief minta "E-mel Rasmi"; kini arisma2012@gmail.com dan telefon pengasas), waktu pejabat.
 - [ ] **Senarai pemegang amanah semasa** (kini daripada notis 2019) dan jawatan pemungut pada resit (kini "Bendahari").
 - [ ] Sahkan akaun media sosial (Facebook arisma2013, Instagram arisma2012).

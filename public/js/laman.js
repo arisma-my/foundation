@@ -120,9 +120,8 @@
     };
     v.addEventListener("error", hilang, true);
     if (kurang) { v.removeAttribute("autoplay"); v.pause(); bukaHero(); }
-    v.addEventListener("timeupdate", function () { if (v.currentTime > 5) bukaHero(); });
-    v.addEventListener("ended", bukaHero);
-    setTimeout(bukaHero, 6500);
+    // Teks hero muncul hampir serta-merta; video berjalan di atasnya, tidak ditunggu.
+    setTimeout(bukaHero, 450);
     if (ulang) ulang.addEventListener("click", function () { v.currentTime = 0; v.play(); });
     if (bunyi) bunyi.addEventListener("click", function () {
       v.muted = !v.muted;

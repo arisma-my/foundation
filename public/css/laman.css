@@ -173,17 +173,18 @@ h3{font-size:1.4rem;line-height:1.25}
 
 /* ---------- Ringkasan kempen (DEGUP) ---------- */
 .tajuk-wang{font-size:clamp(2.2rem,5vw,4rem);line-height:1.12;max-width:22ch;margin:0 auto}
-.ringkasan{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,32px);background:var(--putih);border-radius:var(--r-besar);padding:clamp(24px,3.5vw,44px);margin-top:clamp(36px,5vw,56px);box-shadow:0 30px 60px -40px rgba(60,45,10,.35)}
+.ringkasan{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,32px);background:var(--putih);border-radius:var(--r-besar);padding:clamp(24px,3.5vw,44px);margin-top:clamp(36px,5vw,56px);box-shadow:0 30px 60px -40px rgba(60,45,10,.35)}
 @media (max-width:860px){.ringkasan{grid-template-columns:1fr}}
-.ringkasan .besar{font-family:var(--f-tajuk);font-size:clamp(2.8rem,6vw,4.4rem);line-height:1}
+.ringkasan > div:first-child{container-type:inline-size}
+.ringkasan .besar{font-family:var(--f-tajuk);font-size:clamp(2rem,15cqw,4.4rem);line-height:1.05;white-space:nowrap}
 .ringkasan .atas{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 .ringkasan .peratus{text-align:right}
 .ringkasan .peratus b{display:block;font-family:var(--f-tajuk);font-weight:400;font-size:clamp(2rem,3.6vw,2.8rem);line-height:1}
 .ringkasan .bar{height:12px;margin-top:22px}
 .label-kecil{font-size:.86rem;font-weight:700;color:var(--kelabu);letter-spacing:.02em}
 .jubin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-content:start}
-.jubin div{background:var(--kertas);border-radius:var(--r);padding:20px 22px}
-.jubin b{display:block;font-family:var(--f-tajuk);font-weight:400;font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.1;margin-bottom:6px}
+.jubin div{background:var(--kertas);border-radius:var(--r);padding:18px;container-type:inline-size;min-width:0}
+.jubin b{display:block;font-family:var(--f-tajuk);font-weight:400;font-size:clamp(1.15rem,12.5cqw,2.1rem);line-height:1.1;margin-bottom:6px;white-space:nowrap}
 
 /* ---------- Tiang visi ---------- */
 .tiang{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
@@ -466,3 +467,11 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px soli
 .gelap .kotak,.gelap .kotak h3,.gelap .kotak dd{color:var(--dakwat)}
 .gelap .kotak .bantu,.gelap .kotak .kecil,.gelap .kotak dt{color:var(--kelabu)}
 .mini .angka small{display:block;margin-top:2px}
+
+/* Petak ringkasan pada telefon: satu lajur, label di kiri dan nombor di kanan */
+@media (max-width:560px){
+  .jubin{grid-template-columns:1fr;gap:10px}
+  .jubin div{container-type:normal;display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 18px}
+  .jubin b{font-size:1.4rem;margin:0}
+  .jubin .label-kecil{min-width:0}
+}
