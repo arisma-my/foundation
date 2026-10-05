@@ -1,0 +1,9 @@
+# Salin fail ini kepada .dev.vars untuk ujian di komputer (JANGAN commit .dev.vars).
+# Kunci Turnstile di bawah ialah kunci UJIAN rasmi Cloudflare (sentiasa lulus).
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+TOYYIBPAY_SECRET=
+TOYYIBPAY_CATEGORY=
+KUNCI_DATA=
+KUNCI_RESIT=
+RESEND_API_KEY=
+BUKA_SUMBANGAN=ya

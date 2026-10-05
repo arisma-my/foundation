@@ -1,5 +1,7 @@
 # ARISMA Foundation: laman web di Cloudflare
 
+> **Mengemas kini fail, commit ke GitHub dan menyemak deploy: baca `PANDUAN-GITHUB.md` dahulu.** Ia menerangkan di mana setiap perubahan dibuat supaya tidak tersilap. Apa yang masih perlu disediakan ada dalam `SENARAI-SEMAK.md`.
+
 Satu Cloudflare Worker melayan laman statik (`public/`) dan backend sumbangan (`src/`).
 Data disimpan dalam Cloudflare D1. Tiada Vercel, Google Sheet atau Apps Script.
 
@@ -108,7 +110,7 @@ Kemudian: `TOYYIBPAY_BASE` = `https://toyyibpay.com`, tukar dua rahsia toyyibPay
 1. Beli `arismafoundation.org.my` melalui pendaftar MYNIC (perlukan sijil pemerbadanan Yayasan).
 2. Cloudflare > **Add a domain** > pelan Free. Tukar nameserver di pendaftar kepada yang Cloudflare beri.
 3. Worker > **Settings > Domains & Routes > Add > Custom domain**: `arismafoundation.org.my` dan `www.arismafoundation.org.my`.
-4. Kemas kini `LAMAN_URL` = `https://arismafoundation.org.my`. Tambah hostname domain dalam widget Turnstile.
+4. `LAMAN_URL` dalam `wrangler.jsonc` sudah diisi `https://arismafoundation.org.my` (tukar kepada versi `www` jika itu alamat utama). Tambah domain pada widget Turnstile. Jangan tambah domain dalam `wrangler.jsonc` (urus di dashboard sahaja).
 5. Tetapan zon domain:
    - **SSL/TLS > Edge Certificates**: Always Use HTTPS = On, Minimum TLS = 1.2.
    - **DNS > Settings**: Enable DNSSEC, kemudian masukkan rekod DS di pendaftar.

@@ -4,6 +4,11 @@
   "main": "src/index.js",
   "compatibility_date": "2026-10-01",
 
+  // LANGKAH 2 (hanya selepas domain disahkan berfungsi): buang tanda // di hadapan DUA baris di bawah,
+  // kemudian commit. Ini menutup alamat workers.dev dan pautan pratonton awam. Jangan buang koma.
+  // "workers_dev": false,
+  // "preview_urls": false,
+
   // Fail awam sahaja. src/, migrations/ dan fail tetapan TIDAK boleh dicapai dari web.
   "assets": {
     "directory": "./public",
@@ -36,7 +41,7 @@
 
   // Nilai awam (bukan rahsia). Rahsia dimasukkan di dashboard: Settings > Variables and Secrets.
   "vars": {
-    "LAMAN_URL": "",
+    "LAMAN_URL": "https://arismafoundation.org.my",
     "BUKA_SUMBANGAN": "tidak",
     "TOYYIBPAY_BASE": "https://dev.toyyibpay.com",
     "TOYYIBPAY_CHANNEL": "2",
