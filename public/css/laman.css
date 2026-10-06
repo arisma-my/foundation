@@ -476,13 +476,76 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px soli
   .jubin .label-kecil{min-width:0}
 }
 
+/* ---------- Program & Acara: tab ---------- */
+.tab-bar{display:none}
+.js .tab-bar{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:72px;z-index:20;margin:0 0 clamp(24px,3.5vw,40px);padding:12px 0;background:rgba(247,245,240,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tab-bar [role="tab"]{font:inherit;font-weight:700;font-size:.95rem;line-height:1.2;padding:10px 18px;border:1px solid var(--garis);background:var(--putih);color:var(--dakwat);border-radius:999px;cursor:pointer;transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.tab-bar [role="tab"]:hover{border-color:var(--dakwat)}
+.tab-bar [role="tab"][aria-selected="true"]{background:var(--malam);border-color:var(--malam);color:#fff}
+.js .tab-panel:not(.aktif){display:none}
+.bahagian.tab-seksyen{padding-bottom:clamp(36px,5vw,64px)}
+.panel-kepala{margin-bottom:clamp(26px,3.5vw,40px)}
+.panel-kepala .pendahuluan{max-width:64ch}
+.tab-panel .nota-jadual{margin-top:0}
+
 /* ---------- Siri OKU Berdoa ---------- */
-.acara-tajuk{margin-top:28px;font-size:1.35rem}
-.lencana-lepas{display:inline-block;margin-left:10px;padding:3px 12px;border-radius:999px;background:var(--emas-lembut);color:var(--emas-teks);font-size:.8rem;font-weight:700;vertical-align:middle}
-.prosa .kotak{margin:16px 0 20px}
-.galeri{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,20px);margin-top:clamp(28px,4vw,48px);align-items:start}
-.galeri .kol{display:grid;gap:clamp(12px,2vw,20px)}
-.galeri figure{margin:0;border-radius:var(--r-besar);overflow:hidden;background:transparent}
-.galeri a{display:block}
-.galeri img{display:block;width:100%;height:auto}
-@media (max-width:640px){.galeri{grid-template-columns:1fr}}
+.acara{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:center}
+.acara-poster{margin:0;border-radius:var(--r-besar);overflow:hidden;box-shadow:0 24px 48px -28px rgba(7,7,6,.5)}
+.acara-tajuk{font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.2}
+.lencana-lepas{display:inline-block;margin-left:10px;padding:3px 12px;border-radius:999px;background:var(--emas-lembut);color:var(--emas-teks);font-family:var(--f-teks);font-size:.8rem;font-weight:700;vertical-align:middle;white-space:nowrap}
+.acara-info .kotak{margin:18px 0 20px}
+.acara-info .kotak dl{margin-top:0}
+.acara-info p{max-width:60ch}
+.foto-baris{display:flex;gap:clamp(10px,1.6vw,16px);margin-top:clamp(28px,4vw,48px)}
+.foto-baris figure{margin:0;min-width:0;border-radius:var(--r);overflow:hidden}
+.foto-baris img{width:100%;height:auto}
+.foto-p{flex:.739 1 0%}
+.foto-l{flex:2.419 1 0%}
+.foto-s{flex:1.5 1 0%}
+
+/* Gambar yang boleh dibesarkan: zoom lembut bila kursor lalu */
+.galeri-pautan{display:block;position:relative;overflow:hidden;border-radius:inherit;cursor:zoom-in}
+.galeri-pautan img{transition:transform .8s var(--lembut)}
+.galeri-pautan::after{content:"";position:absolute;inset:0;background:rgba(7,7,6,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='6.5'/%3E%3Cpath d='M16 16l4.5 4.5M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E") center/44px no-repeat;opacity:0;transition:opacity .45s ease}
+@media (hover:hover){
+  .galeri-pautan:hover img{transform:scale(1.07)}
+  .galeri-pautan:hover::after{opacity:1}
+}
+.galeri-pautan:focus-visible img{transform:scale(1.04)}
+.galeri-pautan:focus-visible::after{opacity:1}
+
+/* ---------- Paparan gambar besar (lightbox) ---------- */
+.kunci-skrol{overflow:hidden}
+.cahaya{position:fixed;inset:0;z-index:100;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(6px,2vw,24px);padding:clamp(64px,8vw,76px) clamp(10px,2.5vw,32px);background:rgba(7,7,6,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transition:opacity .3s ease}
+.cahaya.buka{opacity:1}
+.cahaya-rajah{margin:0;display:grid;justify-items:center;gap:12px;min-width:0}
+.cahaya-rajah img{width:auto;height:auto;max-width:100%;max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px);object-fit:contain;border-radius:14px;cursor:pointer;opacity:0;transform:scale(.97);transition:opacity .35s ease,transform .5s var(--lembut)}
+.cahaya-rajah img.masuk{opacity:1;transform:none}
+.cahaya-kira{color:rgba(255,255,255,.7);font-size:.92rem;letter-spacing:.04em}
+.cahaya-btn{display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:background-color .25s ease,border-color .25s ease}
+.cahaya-btn:hover{background:rgba(255,255,255,.2);border-color:#fff}
+.cahaya-btn svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cahaya-tutup{position:absolute;top:14px;right:14px}
+
+/* ---------- Telefon ---------- */
+@media (max-width:760px){
+  .acara{grid-template-columns:1fr}
+  .acara-poster{max-width:460px}
+}
+@media (max-width:640px){
+  .js .tab-bar{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin-inline:calc(-1 * clamp(20px,4vw,40px));padding-inline:clamp(20px,4vw,40px);padding-block:10px}
+  .tab-bar::-webkit-scrollbar{display:none}
+  .tab-bar [role="tab"]{flex:none;white-space:nowrap;font-size:.88rem;padding:9px 14px}
+  .foto-baris{display:grid;grid-template-columns:1fr 1fr}
+  .foto-l{grid-column:1/-1;order:-1}
+  .foto-p img,.foto-s img{aspect-ratio:1/1;object-fit:cover}
+  .cahaya{grid-template-columns:minmax(0,1fr);padding:68px 10px 90px}
+  .cahaya-rajah img{max-height:calc(100vh - 200px);max-height:calc(100dvh - 200px)}
+  .cahaya-nav{position:absolute;bottom:20px}
+  .cahaya-prev{left:20px}
+  .cahaya-next{right:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .galeri-pautan img,.galeri-pautan::after,.cahaya,.cahaya-rajah img{transition:none}
+  .galeri-pautan:hover img{transform:none}
+}

@@ -187,3 +187,11 @@ cp .dev.vars.contoh .dev.vars     # isi nilai
 npm run db:local
 npm run dev                       # http://localhost:8787
 ```
+
+## Halaman Program & Acara: tab dan galeri gambar
+- Empat bahagian program ialah **tab** (kandungan bertukar di tempat). Semuanya dalam `sumber/halaman/program.html`. Setiap tab ialah satu `<div class="tab-panel" id="...">`; butangnya dalam `.tab-bar`. `id` panel mesti sama dengan `aria-controls` butang, kerana pautan menu `/program/#mais` membuka tab yang betul. Tanpa JavaScript semua bahagian dipaparkan bersusun.
+- **Menambah gambar ke galeri:** letak fail dalam `public/img/`, kemudian bungkus gambar begini (kumpulan yang sama = boleh ke gambar seterusnya):
+  `<a class="galeri-pautan" data-galeri="oku" href="/img/nama.jpg" aria-label="Lihat gambar / View image"><img src="/img/nama.jpg" alt="Huraian gambar" width="..." height="..." loading="lazy"></a>`
+  Acara baharu guna nama kumpulan lain (cth. `data-galeri="mais"`). Isi `width` dan `height` sebenar supaya halaman tidak terenjat. Jalankan `python3 sumber/bina.py` selepas edit `sumber/`.
+- Fail: `public/js/program.js` (tab) dan `public/js/galeri.js` (paparan besar). Untuk gunakan galeri di halaman lain, tambah `skrip: galeri` pada blok `---` halaman itu.
+
