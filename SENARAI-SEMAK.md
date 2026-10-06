@@ -21,10 +21,11 @@ Tandakan [x] bila siap. Bahagian A mesti selesai sebelum kutipan dalam talian di
 - [ ] **QR DuitNow rasmi** daripada bank: `public/img/duitnow-qr.png`. (QR pada poster Infaq tidak dapat dinyahkod semasa semakan; uji dengan telefon sebelum guna.)
 - [ ] **Gambar/video aktiviti** untuk hero dan seksyen (brief minta aktiviti kemasyarakatan). Kini hanya video logo.
 - [ ] **Laporan aktiviti / buletin tahunan** sebagai `public/laporan/laporan-aktiviti.pdf`, dan surat kelulusan LHDN sebagai `kelulusan-44-6.pdf`.
-- [ ] **Siri OKU Berdoa, Program MAIS, UIA & USIM:** tarikh, lokasi, gambar, nama pegawai rakan.
+- [ ] **Siri OKU Berdoa (5 Dis 2025, UKM):** peranan sebenar ARISMA Foundation dalam acara (kini nota "sedang disediakan"), kebenaran penganjur (UPS OKU UKM) menggunakan poster dan gambar, dan tarikh siri seterusnya. Catatan: post Facebook asal ada hashtag Desa; ia tidak disalin.
+- [ ] **Program MAIS, UIA & USIM:** tarikh, lokasi, gambar, nama pegawai rakan.
 - [ ] **Solidarity with Raudhah Autisme:** butiran kerjasama, logo rakan, kebenaran menggunakan nama mereka.
 - [ ] **Taman Agro:** gambar projek rintis 2018, data pelatih (dengan kebenaran keluarga).
-- [ ] **Nombor telefon Hj. Omar bin Ahmad (Pengerusi).** Kini ruang `[NOMBOR HJ OMAR]` dalam kaki halaman (semua halaman) dan halaman Hubungi. Cari dengan `grep -r "NOMBOR" public sumber`; `bina.py` beri amaran selagi masih ada.
+- [ ] **WhatsApp Hj. Omar bin Ahmad (Pengerusi).** Kini guna username `@OMARAHMAD1966` (pautan `wa.me/OMARAHMAD1966`), satu-satunya kenalan Yayasan dalam kaki halaman, halaman Hubungi dan kotak Hubungi DEGUP. **Uji pautan dari telefon lain** (bukan telefon Hj. Omar); jika ada "username key" atau pautan tidak terbuka, mintalah nombor telefon biasa. Tukar di satu tempat: `WA_USERNAME` dalam `sumber/bina.py`, kemudian jalankan skrip itu semula.
 - [ ] **E-mel dan telefon rasmi pejabat** (brief minta "E-mel Rasmi"; kini arisma2012@gmail.com dan telefon pengasas), waktu pejabat.
 - [ ] **Senarai pemegang amanah semasa** (kini daripada notis 2019) dan jawatan pemungut pada resit (kini "Bendahari").
 - [ ] Sahkan akaun media sosial (Facebook arisma2013, Instagram arisma2012).
@@ -38,3 +39,7 @@ Tandakan [x] bila siap. Bahagian A mesti selesai sebelum kutipan dalam talian di
 - [ ] Cloudflare Access untuk `/pentadbir/*`; 2FA akaun; DNSSEC; Always HTTPS.
 - [ ] Uji sandbox toyyibPay hingga resit sampai, kemudian tukar ke live dan `BUKA_SUMBANGAN = "ya"`.
 - [ ] Laman Akademi: isi `yayasan_sumbang` supaya butang Sumbang menunjuk ke laman ini.
+
+## D. Sebelum pelancaran rasmi
+- [ ] **Buka indeks Google:** buang baris `X-Robots-Tag: noindex` dalam `public/_headers`, kemudian deploy. (Sementara ini laman tidak muncul dalam carian Google tetapi pautan boleh dibuka dan dikongsi.)
+- [ ] Semak kad pratonton pautan dikongsi di WhatsApp (guna `SITE` dalam `sumber/bina.py`; mesti URL penuh domain sebenar).

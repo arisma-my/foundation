@@ -16,6 +16,10 @@ import os, re, glob, sys, hashlib
 AKAR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SUMBER = os.path.join(AKAR, "sumber")
 PUBLIC = os.path.join(AKAR, "public")
+# ---- Tetapan pusat (ubah di sini, kemudian jalankan skrip ini semula) ----
+SITE = "https://arismafoundation.org.my"   # URL penuh laman; WAJIB penuh untuk kad pratonton WhatsApp/Facebook (og:image, og:url)
+WA_USERNAME = "OMARAHMAD1966"              # WhatsApp username Hj. Omar bin Ahmad (tanpa @). Pautan: wa.me/<username>
+# ---------------------------------------------------------------------------
 TURNSTILE = '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>'
 DWI = re.compile(r"\[\[(.+?)\|\|(.+?)\]\]", re.S)
 
@@ -58,9 +62,12 @@ def main():
             tambah += '<meta name="robots" content="noindex">'
         k = (kerangka.replace("{{TAJUK}}", meta["tajuk"]).replace("{{DESKRIPSI}}", meta["desk"])
              .replace("{{OGIMG}}", meta.get("og", "/media/poster.jpg")).replace("{{KEPALA_TAMBAHAN}}", tambah))
+        laman = "/" + meta["laluan"].replace("index.html", "")
+        k = k.replace("{{SITE}}", SITE).replace("{{LAMAN}}", laman)
         k = re.sub(r' data-nav="([a-z]+)"', lambda m: ' aria-current="page"' if m.group(1) == nav else "", k)
         skrip = "".join(f'<script src="/js/{s.strip()}.js?v={V}"></script>\n' for s in meta.get("skrip", "").split(",") if s.strip())
         html = (k + badan + kaki.replace("{{SKRIP}}", skrip)).replace("{{V}}", V)
+        html = html.replace("{{WA_URL}}", f"https://wa.me/{WA_USERNAME}").replace("{{WA_NAMA}}", f"@{WA_USERNAME}")
         html = dwibahasa(html)
         keluar = os.path.join(PUBLIC, meta["laluan"])
         os.makedirs(os.path.dirname(keluar), exist_ok=True)

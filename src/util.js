@@ -46,10 +46,24 @@ export function lamanUrl(env, request) {
 }
 
 /* ---------- Asal permintaan (CSRF) ---------- */
+// Asal mesti sama dengan laman yang melayan permintaan, ATAU laman rasmi (LAMAN_URL).
+// "www.contoh.my" dan "contoh.my" dianggap laman yang sama supaya salah pilih www tidak memutuskan borang.
+function samaLaman(a, b) {
+  try {
+    const x = new URL(a), y = new URL(b);
+    const nama = (s) => s.hostname.replace(/^www\./, "");
+    return x.protocol === y.protocol && x.port === y.port && nama(x) === nama(y);
+  } catch (e) {
+    return false;
+  }
+}
+
 export function asalSah(request, env) {
   const o = request.headers.get("Origin");
   if (!o) return false;
-  return o === new URL(request.url).origin || o === (env.LAMAN_URL || "").replace(/\/$/, "");
+  if (o === new URL(request.url).origin) return true;
+  const rasmi = (env.LAMAN_URL || "").trim();
+  return !!rasmi && samaLaman(o, rasmi);
 }
 
 export function ip(request) {

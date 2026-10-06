@@ -475,3 +475,14 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px soli
   .jubin b{font-size:1.4rem;margin:0}
   .jubin .label-kecil{min-width:0}
 }
+
+/* ---------- Siri OKU Berdoa ---------- */
+.acara-tajuk{margin-top:28px;font-size:1.35rem}
+.lencana-lepas{display:inline-block;margin-left:10px;padding:3px 12px;border-radius:999px;background:var(--emas-lembut);color:var(--emas-teks);font-size:.8rem;font-weight:700;vertical-align:middle}
+.prosa .kotak{margin:16px 0 20px}
+.galeri{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,20px);margin-top:clamp(28px,4vw,48px);align-items:start}
+.galeri .kol{display:grid;gap:clamp(12px,2vw,20px)}
+.galeri figure{margin:0;border-radius:var(--r-besar);overflow:hidden;background:transparent}
+.galeri a{display:block}
+.galeri img{display:block;width:100%;height:auto}
+@media (max-width:640px){.galeri{grid-template-columns:1fr}}
