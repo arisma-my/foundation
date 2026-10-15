@@ -42,8 +42,8 @@
   // Nilai awam (bukan rahsia). Rahsia dimasukkan di dashboard: Settings > Variables and Secrets.
   "vars": {
     "LAMAN_URL": "https://arismafoundation.org.my",
-    "BUKA_SUMBANGAN": "tidak",
-    "TOYYIBPAY_BASE": "https://dev.toyyibpay.com",
+    "BUKA_SUMBANGAN": "ya",
+    "TOYYIBPAY_BASE": "https://toyyibpay.com",
     "TOYYIBPAY_CHANNEL": "2",
     "TURNSTILE_SITEKEY": "1x00000000000000000000AA",
     "MIN_SUMBANGAN": "1",
