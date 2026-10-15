@@ -25,11 +25,11 @@ async function pos(env, laluan, medan) {
 }
 
 export async function ciptaBil(env, d) {
-  if (!env.TOYYIBPAY_SECRET || !env.TOYYIBPAY_CATEGORY) throw new Error("toyyibPay belum dikonfigurasi");
+  if (!env.TOYYIBPAY_SECRET || !d.kategori) throw new Error("toyyibPay belum dikonfigurasi");
   const medan = {
     userSecretKey: env.TOYYIBPAY_SECRET,
-    categoryCode: env.TOYYIBPAY_CATEGORY,
-    billName: alnum("Sumbangan ARISMA Foundation", 30),
+    categoryCode: d.kategori,
+    billName: alnum(d.nama_bil || "Sumbangan ARISMA Foundation", 30),
     billDescription: alnum(d.keterangan, 100),
     billPriceSetting: 1,            // amaun tetap
     billPayorInfo: 1,               // maklumat pembayar wajib

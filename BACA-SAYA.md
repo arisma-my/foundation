@@ -66,13 +66,16 @@ Tampal seluruh isi `migrations/0001_awal.sql` > **Execute**. Tanpa langkah ini, 
 3. Simpan **Secret Key** untuk langkah 4.
 
 ### 4. Rahsia
+**Satu kategori toyyibPay untuk setiap projek.** Cipta di toyyibPay menu **Categories** (bukan Create Bill), salin *Category Code* setiap satu. Sandbox (`dev.toyyibpay.com`) dan live (`toyyibpay.com`) ialah dua akaun berasingan dengan secret dan kod kategori masing-masing. Projek tanpa kategori (sumbangan am, Taman Agro, Raudhah) tidak menerima bayaran dan tidak muncul pada borang. Untuk membuka projek baharu: tambah entri `kategori` dalam `src/projek.js` dan rahsia yang sepadan.
+
 Worker > **Settings > Variables and Secrets > Add**, jenis **Secret**:
 
 | Nama | Nilai |
 |---|---|
 | `TURNSTILE_SECRET` | Secret Key Turnstile |
 | `TOYYIBPAY_SECRET` | userSecretKey toyyibPay (sandbox dahulu) |
-| `TOYYIBPAY_CATEGORY` | categoryCode toyyibPay |
+| `TOYYIBPAY_CATEGORY_DEGUP` | categoryCode toyyibPay untuk Kembara DEGUP (menu **Categories**, bukan senarai bil) |
+| `TOYYIBPAY_CATEGORY_INFAQ` | categoryCode toyyibPay untuk Infaq Jumaat |
 | `KUNCI_DATA` | kunci penyulitan, lihat di bawah |
 | `KUNCI_RESIT` | kunci tandatangan resit, lihat di bawah |
 | `RESEND_API_KEY` | selepas domain dibeli (langkah 7) |

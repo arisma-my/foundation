@@ -2,7 +2,7 @@ import {
   json, ralat, asalSah, ip, bacaJson, dalamHad, turnstileSah,
   baris, emelSah, telefonSah, idRawak, tanda, tandaSah, sulit, tahunMY, lamanUrl
 } from "./util.js";
-import { PROJEK } from "./projek.js";
+import { PROJEK, kodKategori } from "./projek.js";
 import { ciptaBil, pautanBayar, semakBayaran } from "./toyyibpay.js";
 import { hantarResitEmel } from "./resit.js";
 
@@ -21,6 +21,15 @@ function nomborId(jenis, mentah) {
 
 export function bukaSumbangan(env) {
   return String(env.BUKA_SUMBANGAN || "").toLowerCase() === "ya";
+}
+
+// Keterangan bil di halaman toyyibPay (maks 100 aksara, hanya huruf/nombor/ruang/_): nama yayasan, projek,
+// peruntukan dan rujukan pendek. Rujukan diletak di hujung dan dikekalkan walaupun bahagian tengah dipendekkan.
+export function keteranganBil(p, item, id) {
+  const bersih = (s) => String(s).replace(/[^A-Za-z0-9 _]/g, "").replace(/\s+/g, " ").trim();
+  const rujukan = " Rujukan AF" + String(id).slice(0, 8).toUpperCase();
+  const tengah = bersih("ARISMA Foundation " + p.bil + (item && p.item && p.item[item] ? " " + p.item[item].ms : ""));
+  return tengah.slice(0, 100 - rujukan.length).trim() + rujukan;
 }
 
 /* ---------- POST /api/sumbang ---------- */
@@ -51,6 +60,8 @@ export async function ciptaSumbangan(request, env) {
   const maks = Number(env.MAKS_SUMBANGAN || 30000) * 100;
 
   if (!projek) return ralat(400, "data", "projek");
+  const kategori = kodKategori(env, p);
+  if (!kategori) return ralat(403, "projek_tutup", "projek");
   if (b.item && !item) return ralat(400, "data", "item");
   if (!jenis) return ralat(400, "data", "jenis");
   if (nama.length < 3) return ralat(400, "data", "nama");
@@ -80,7 +91,9 @@ export async function ciptaSumbangan(request, env) {
     billcode = await ciptaBil(env, {
       id, nama, emel, telefon,
       amaun_sen: amaunSen,
-      keterangan: p.bil + (item ? " " + item : ""),
+      kategori,
+      nama_bil: p.bil,
+      keterangan: keteranganBil(p, item, id),
       pulang: `${laman}/sumbang/selesai/?id=${id}&t=${t}`,
       panggilBalik: `${laman}/api/toyyibpay/callback`
     });

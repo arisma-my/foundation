@@ -77,11 +77,12 @@
     if (!j.buka) { tutup.hidden = false; return; }
     konfig = j.projek; maks = j.maks;
     document.getElementById("hadMaks").textContent = "RM" + Number(maks).toLocaleString("en-MY");
-    ["degup2027", "infaq", "umum"].forEach(function (id) {
-      if (!konfig[id]) return;
+    var dibuka = ["degup2027", "infaq", "umum"].filter(function (id) { return konfig[id] && konfig[id].terima; });
+    if (!dibuka.length) { tutup.hidden = false; return; }
+    dibuka.forEach(function (id) {
       kotakProjek.appendChild(pil("projek", id, dwi(konfig[id].ms, konfig[id].en)));
     });
-    var mula = konfig[q.get("projek")] ? q.get("projek") : "degup2027";
+    var mula = dibuka.indexOf(q.get("projek")) >= 0 ? q.get("projek") : dibuka[0];
     kotakProjek.querySelector('input[value="' + mula + '"]').checked = true;
     binaItem(); binaAmaun();
     f.hidden = false;

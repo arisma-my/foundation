@@ -5,6 +5,7 @@
     asal: ["Permintaan ditolak. Muat semula halaman dan cuba lagi.", "Request rejected. Reload the page and try again."],
     had: ["Terlalu banyak cubaan. Tunggu seminit dan cuba lagi.", "Too many attempts. Wait a minute and try again."],
     tutup: ["Sumbangan dalam talian belum dibuka.", "Online donations are not open yet."],
+    projek_tutup: ["Projek ini belum menerima sumbangan dalam talian. Pilih projek lain atau sumbang melalui pindahan bank.", "This project is not accepting online donations yet. Choose another project or donate by bank transfer."],
     turnstile: ["Pengesahan keselamatan gagal. Tandakan kotak pengesahan sekali lagi.", "Security check failed. Complete the verification box again."],
     data: ["Semak medan yang ditanda.", "Check the highlighted field."],
     amaun: ["Amaun di luar had yang dibenarkan.", "Amount is outside the allowed range."],

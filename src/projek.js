@@ -1,5 +1,8 @@
 // Senarai projek ARISMA Foundation. Satu-satunya tempat untuk tambah / ubah projek.
 // Projek baharu: tambah satu entri di sini (id huruf kecil), kemudian tambah kad di laman utama.
+// kategori: nama rahsia (env) yang menyimpan categoryCode toyyibPay bagi projek itu. Setiap projek ada kategori
+// sendiri supaya laporan toyyibPay boleh diasingkan. Projek tanpa kategori (null) atau kategori yang belum
+// diisi di Cloudflare tidak menerima bayaran. Untuk membuka projek baharu: tambah entri + rahsia kategori.
 // Amaun dalam RM. sasaran: 0 = tiada sasaran (projek berterusan).
 // item: pecahan kos yang boleh ditaja satu per satu (gaya "pilih apa yang anda taja").
 
@@ -8,6 +11,7 @@ export const PROJEK = {
     ms: "Kembara DEGUP ARISMA 2027",
     en: "Kembara DEGUP ARISMA 2027",
     bil: "Kembara DEGUP 2027",
+    kategori: "TOYYIBPAY_CATEGORY_DEGUP",   // nama rahsia di Cloudflare yang menyimpan categoryCode toyyibPay
     sasaran: 330000,
     min: 10,
     pratetap: [50, 100, 250, 500],
@@ -54,6 +58,7 @@ export const PROJEK = {
     ms: "Infaq Jumaat",
     en: "Infaq Jumaat",
     bil: "Infaq Jumaat ARISMA",
+    kategori: "TOYYIBPAY_CATEGORY_INFAQ",
     sasaran: 0,
     min: 5,
     pratetap: [5, 10, 20, 50]
@@ -62,6 +67,7 @@ export const PROJEK = {
     ms: "Dana am ARISMA Foundation",
     en: "ARISMA Foundation general fund",
     bil: "Dana am ARISMA Foundation",
+    kategori: null,   // belum ada kategori toyyibPay: projek ini DITUTUP (tidak boleh terima bayaran)
     sasaran: 0,
     min: 10,
     pratetap: [50, 100, 250, 500]
@@ -76,10 +82,16 @@ export function namaPeruntukan(projek, item, bahasa = "ms") {
 }
 
 // Versi awam untuk pelayar (tiada rahsia di sini, tetapi kekalkan bentuk yang stabil)
-export function projekAwam() {
+// Kod kategori projek (rahsia di Cloudflare). Pulang "" jika projek tiada kategori / belum diisi / bentuknya tidak sah.
+export function kodKategori(env, p) {
+  const k = p && p.kategori && env ? String(env[p.kategori] || "").trim() : "";
+  return /^[A-Za-z0-9_-]{3,64}$/.test(k) ? k : "";
+}
+
+export function projekAwam(env) {
   const o = {};
   for (const [id, p] of Object.entries(PROJEK)) {
-    o[id] = { ms: p.ms, en: p.en, sasaran: p.sasaran, min: p.min, pratetap: p.pratetap };
+    o[id] = { ms: p.ms, en: p.en, sasaran: p.sasaran, min: p.min, pratetap: p.pratetap, terima: !!kodKategori(env, p) };
     if (p.item) {
       o[id].item = {};
       for (const [k, i] of Object.entries(p.item)) {

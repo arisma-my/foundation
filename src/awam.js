@@ -10,7 +10,7 @@ export function tetapan(env) {
       buka: bukaSumbangan(env),
       turnstile: env.TURNSTILE_SITEKEY || "",
       maks: Number(env.MAKS_SUMBANGAN || 30000),
-      projek: projekAwam()
+      projek: projekAwam(env)
     },
     200,
     { "cache-control": "public, max-age=60" }

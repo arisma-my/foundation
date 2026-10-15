@@ -47,7 +47,7 @@ Kalau yang kelihatan ialah satu folder bernama `arisma-foundation` sahaja, susun
 5. Hantar:
    ```
    git add -A
-   git commit -m "Kemas kini laman v4.3"
+   git commit -m "Kemas kini laman v4.6"
    git push
    ```
 
@@ -83,7 +83,7 @@ Nota: muat naik melalui web hanya menimpa dan menambah fail. Ia tidak memadam fa
 | `EMEL_DARI`, `EMEL_PENTADBIR`, `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD` | `wrangler.jsonc` di GitHub | pensel, commit |
 | Teks, gambar, halaman | fail dalam `public/` | muat naik atau pensel |
 | Senarai projek dan sasaran | `src/projek.js` | pensel, commit |
-| `TURNSTILE_SECRET`, `TOYYIBPAY_SECRET`, `TOYYIBPAY_CATEGORY`, `KUNCI_DATA`, `KUNCI_RESIT`, `RESEND_API_KEY` | **Dashboard Cloudflare sahaja** | Worker `foundation`, Settings, Variables and Secrets, Add, jenis **Secret** |
+| `TURNSTILE_SECRET`, `TOYYIBPAY_SECRET`, `TOYYIBPAY_CATEGORY_DEGUP`, `TOYYIBPAY_CATEGORY_INFAQ`, `KUNCI_DATA`, `KUNCI_RESIT`, `RESEND_API_KEY` | **Dashboard Cloudflare sahaja** | Worker `foundation`, Settings, Variables and Secrets, Add, jenis **Secret** |
 
 `LAMAN_URL` sudah diisi `https://arismafoundation.org.my`. Jika bos mahu alamat utama dengan `www`, tukar kepada `https://www.arismafoundation.org.my`. Borang tetap berfungsi pada kedua-dua alamat.
 
